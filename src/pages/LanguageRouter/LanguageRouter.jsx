@@ -1,5 +1,7 @@
 import React from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
+import setLanguage from 'store/app/actions'
 import PropTypes from 'prop-types'
 import Langs from 'pages/langs'
 import regexLangsPath from 'utils/regex-langs-path'
@@ -7,6 +9,7 @@ import regexLangsPath from 'utils/regex-langs-path'
 
 const LanguageRouter = (props) => {
   const { children, language } = props
+
   const Children = () => children
 
   return (
@@ -26,11 +29,22 @@ const LanguageRouter = (props) => {
 
 LanguageRouter.propTypes = {
   children: PropTypes.node.isRequired,
-  language: PropTypes.string,
+  language: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.bool,
+  ]),
 }
 
 LanguageRouter.defaultProps = {
-  language: false,
+  language: null,
 }
 
-export default LanguageRouter
+const mapStateToProps = state => (
+  { language: state.app.language }
+)
+
+const mapDispatchToProps = {
+  setLanguage,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LanguageRouter)

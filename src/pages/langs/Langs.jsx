@@ -1,18 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
+import ChooseLanguage from 'components/ChooseLanguage'
 
-
-class Langs extends Component {
-  // state = {
-  //
-  // }
-  //
-  // static propTypes = {
-  //    a: PropTypes.element.isRequired,
-  // }
-
-  render() {
-    return <div>Langs</div>
-  }
-}
+const Langs = () => (
+  <ChooseLanguage />
+)
 
 export default Langs

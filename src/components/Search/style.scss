@@ -1,0 +1,14 @@
+.search {
+  display: block;
+  position: relative;
+  width: 50%;
+
+  & input{
+    width: 100%;
+    outline: none;
+  }
+}
+
+.search:hover {
+  display: block;
+}
