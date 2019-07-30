@@ -1,0 +1,10 @@
+@import 'components/__shared/css/variables.scss';
+
+.search-list {
+  background-color: $white;
+  padding: 1rem 0;
+
+  & li:hover {
+    background-color: $halfWhiteDown;
+  }
+}

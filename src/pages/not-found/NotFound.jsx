@@ -1,18 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 
-class NotFound extends Component {
-  // state = {
-  //
-  // }
-  //
-  // static propTypes = {
-  //    a: PropTypes.element.isRequired,
-  // }
-
-  render() {
-    return <div>Not Found</div>
-  }
-}
+const NotFound = () => (
+  <div>Not Found</div>
+)
 
 export default NotFound

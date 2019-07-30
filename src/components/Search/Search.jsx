@@ -1,7 +1,14 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import { showSearchDropdown } from 'store/search/actions'
+import { showSearchList, hideSearchList } from 'store/search/actions'
+import {
+  setPlayerClickCupture,
+  removePlayerClickCupture,
+  hideYoutubeIfarame,
+  showYoutubeIfarame,
+} from 'store/player/actions'
+import onClickOutside from 'react-onclickoutside'
 import SearchComponent from './Component'
 import searchRequest from './search-request'
 
@@ -12,12 +19,22 @@ class Search extends PureComponent {
   }
 
   static propTypes = {
-    videoList: PropTypes.arrayOf(PropTypes.object),
-    showSearchDropdown: PropTypes.func.isRequired,
+    searchList: PropTypes.arrayOf(PropTypes.object),
+    showSearchList: PropTypes.func.isRequired,
+    hideSearchList: PropTypes.func.isRequired,
+    hideYoutubeIfarame: PropTypes.func.isRequired,
+    showYoutubeIfarame: PropTypes.func.isRequired,
+    setPlayerClickCupture: PropTypes.func.isRequired,
+    removePlayerClickCupture: PropTypes.func.isRequired,
+    language: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.bool,
+    ]),
   }
 
   static defaultProps = {
-    videoList: null,
+    searchList: null,
+    language: null,
   }
 
   onInputChange = (e) => {
@@ -33,25 +50,51 @@ class Search extends PureComponent {
     const { inputValue } = this.state
 
     searchRequest({ searchString: inputValue })
-      .then((videoList) => {
-        const { showSearchDropdown: showList } = this.props
-        showList(videoList)
+      .then((searchList) => {
+        const {
+          showSearchList: showList,
+          setPlayerClickCupture: setClickCupture,
+          hideYoutubeIfarame: hideIfarame,
+        } = this.props
+        if (window.screen.width < 769) {
+          hideIfarame()
+        }
+        showList(searchList)
+        setClickCupture()
       })
       .catch((err) => {
         console.warn(err)
       })
   }
 
+  handleClickOutside = () => {
+    const {
+      hideSearchList: hideList,
+      removePlayerClickCupture: removeClickCupture,
+      showYoutubeIfarame: showIfarame,
+      searchList,
+    } = this.props
+
+    if (!searchList) {
+      return
+    }
+
+    showIfarame()
+    removeClickCupture()
+    hideList()
+  }
+
   render() {
     const { inputValue } = this.state
-    const { videoList } = this.props
+    const { searchList, language } = this.props
 
     return (
       <SearchComponent
+        searchList={searchList}
         inputValue={inputValue}
-        videoList={videoList}
         onSubmit={this.onSubmit}
         onInputChange={this.onInputChange}
+        language={language}
       />
     )
   }
@@ -59,12 +102,18 @@ class Search extends PureComponent {
 
 const mapStateToProps = state => (
   {
-    videoList: state.search.videoList,
+    searchList: state.search.searchList,
+    language: state.app.language,
   }
 )
 
 const mapDispatchToProps = {
-  showSearchDropdown,
+  showSearchList,
+  hideSearchList,
+  hideYoutubeIfarame,
+  showYoutubeIfarame,
+  setPlayerClickCupture,
+  removePlayerClickCupture,
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Search)
+export default connect(mapStateToProps, mapDispatchToProps)(onClickOutside(Search))

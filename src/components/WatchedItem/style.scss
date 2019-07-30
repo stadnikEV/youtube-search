@@ -1,0 +1,44 @@
+@import 'components/__shared/css/variables.scss';
+
+.watched-item {
+  display: flex;
+  padding: .7rem;
+  justify-content: space-around;
+
+  button {
+    outline: none;
+    cursor: pointer;
+  }
+
+  &__link {
+    background-color: rgba(0, 0, 0, 0);
+    text-align: left;
+    font-size: .9rem;
+    margin-right: 1rem;
+    color: $lightGrayUp;
+    transition: all .1s;
+
+    &_active {
+      color: $halfWhiteDown;
+    }
+  }
+
+  &__link:hover {
+    color: $halfWhiteDown;
+  }
+
+  &__remove {
+    align-self: center;
+    color: $halfBlack;
+    margin-left: auto;
+    padding: .3rem .3rem;
+    font-size: .9rem;
+    background-color: $lightGrayUp;
+    border-radius: 5px;
+    transition: background-color .3s;
+  }
+
+  &__remove:hover {
+    background-color: $halfWhiteDown;
+  }
+}

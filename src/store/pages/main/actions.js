@@ -1,10 +1,15 @@
-import { SHOW_PLAYER } from 'store/constants'
+import { SHOW_PLAYER, HIDE_PLAYER } from 'store/constants'
 
-const showPlayer = videoList => (
+export const showPlayer = () => (
   {
     type: SHOW_PLAYER,
-    payLoad: videoList,
+    payLoad: true,
   }
 )
 
-export default showPlayer
+export const hidePlayer = () => (
+  {
+    type: HIDE_PLAYER,
+    payLoad: false,
+  }
+)

@@ -1,18 +1,18 @@
 import {
-  SHOW_SEARCH_DROPDOWN,
-  HIDE_SEARCH_DROPDOWN,
+  SHOW_SEARCH_LIST,
+  HIDE_SEARCH_LIST,
 } from 'store/constants'
 
-export const showSearchDropdown = videoList => (
+export const showSearchList = searchList => (
   {
-    type: SHOW_SEARCH_DROPDOWN,
-    payLoad: videoList,
+    type: SHOW_SEARCH_LIST,
+    payLoad: searchList,
   }
 )
 
-export const hideSearchDropdown = () => (
+export const hideSearchList = () => (
   {
-    type: HIDE_SEARCH_DROPDOWN,
+    type: HIDE_SEARCH_LIST,
     payLoad: null,
   }
 )

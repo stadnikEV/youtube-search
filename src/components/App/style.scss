@@ -1,0 +1,10 @@
+@import 'components/__shared/css/reset.scss';
+@import 'components/__shared/css/variables.scss';
+
+html, body, #root {
+  min-height: 100vh;
+}
+
+body {
+  background-color: $gray;
+}

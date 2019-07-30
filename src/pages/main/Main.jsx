@@ -3,31 +3,35 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import Header from 'components/Header'
 import Player from 'components/Player'
-import WatchedVideos from 'components/WatchedVideos'
+import Watched from 'components/Watched'
+
+import './style.scss'
 
 const Main = (props) => {
-  const { id } = props
+  const { player } = props
 
   return (
-    <React.Fragment>
+    <div className="main">
       <Header />
-      { id && <Player /> }
-      <WatchedVideos />
-    </React.Fragment>
+      <main className="main__content">
+        <div className="main__watched-container">
+          <Watched />
+        </div>
+        <div className="main__player-container">
+          { player && <Player /> }
+        </div>
+      </main>
+    </div>
   )
 }
 
 Main.propTypes = {
-  id: PropTypes.string,
-}
-
-Main.defaultProps = {
-  id: null,
+  player: PropTypes.bool.isRequired,
 }
 
 const mapStateToProps = state => (
   {
-    id: state.main.player.id,
+    player: state.main.player,
   }
 )
 

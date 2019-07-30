@@ -1,12 +1,15 @@
-import { SHOW_PLAYER } from 'store/constants'
+import { SHOW_PLAYER, HIDE_PLAYER } from 'store/constants'
 
 const defaultState = {
-  player: { id: null },
+  player: false,
 }
 
 const mainReducer = (state = defaultState, action) => {
   switch (action.type) {
     case SHOW_PLAYER: {
+      return { ...state, player: action.payLoad }
+    }
+    case HIDE_PLAYER: {
       return { ...state, player: action.payLoad }
     }
     default:

@@ -5,6 +5,8 @@ import setLanguage from 'store/app/actions'
 import getLanguage from './get-language'
 import AppComponent from './Component'
 
+import './style.scss'
+
 
 class App extends PureComponent {
   static propTypes = {

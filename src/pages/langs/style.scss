@@ -1,0 +1,41 @@
+@import 'components/__shared/css/variables.scss';
+
+.langs {
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: $gray;
+
+  &__list {
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 5rem;
+
+    .langs__link-container {
+      justify-content: center;
+      display: flex;
+    }
+
+    .langs__link {
+      color: $halfWhiteDown;
+      text-decoration: none;
+      margin-bottom: 1rem;
+      background-color: $gray;
+      border: 1px solid $lightGray;
+      border-radius: 10px;
+      font-size: 5rem;
+      padding: 1rem 2rem;
+      margin: .5rem;
+      transition: all .3s;
+    }
+
+    .langs__link:hover {
+      background-color: $grayUp;
+      border: 1px solid $lightGrayUp;
+      color: $white;
+    }
+  }
+}

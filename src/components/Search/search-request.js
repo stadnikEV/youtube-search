@@ -25,7 +25,7 @@ export default ({ searchString }) => {
         const statisticsFields = getStatisticsFields(result)
 
         resultFields = resultFields.map((item, index) => (
-          { ...item, voites: statisticsFields[index].voites }
+          { ...item, votes: statisticsFields[index].votes }
         ))
 
         resolve(resultFields)

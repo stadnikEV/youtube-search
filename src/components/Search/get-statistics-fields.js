@@ -4,7 +4,7 @@ export default (response) => {
 
   return items.map(item => (
     {
-      voites: item.statistics.likeCount,
+      votes: item.statistics.likeCount,
     }
   ))
 }

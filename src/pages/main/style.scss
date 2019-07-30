@@ -1,0 +1,55 @@
+@import 'components/__shared/css/variables.scss';
+
+.main {
+  background-color: $gray;
+
+  .main__content {
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+    margin: 50px auto;
+
+    .main__watched-container {
+      display: flex;
+      flex-basis: 30%;
+      align-self: stretch;
+    }
+
+    .main__player-container {
+      flex-basis: 60%;
+      margin-top: 1.5rem;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .main {
+    .main__content {
+      flex-direction: column-reverse;
+      justify-content: flex-end;
+      width: 95%;
+      margin: 10px auto;
+
+      .main__watched-container {
+        margin-top: 40px;
+      }
+
+      .main__player-container {
+        margin-top: 0rem;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .main {
+    .main__content {
+      flex-direction: column-reverse;
+      justify-content: flex-end;
+
+      .main__watched-container {
+        margin-top: 40px;
+      }
+    }
+  }
+}

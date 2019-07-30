@@ -1,0 +1,7 @@
+@import 'components/__shared/css/variables.scss';
+.watched-list li {
+  transition: background-color .3s;
+}
+.watched-list li:hover {
+  background-color: $gray;
+}

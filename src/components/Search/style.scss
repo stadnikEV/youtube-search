@@ -1,14 +1,48 @@
+@import 'components/__shared/css/variables.scss';
+
 .search {
-  display: block;
+  width: 100%;
   position: relative;
-  width: 50%;
+  z-index: 2;
 
-  & input{
-    width: 100%;
-    outline: none;
+  & form {
+    display: flex;
+    position: relative;
+    align-items: center;
   }
-}
 
-.search:hover {
-  display: block;
+  &__input {
+    flex-basis: 100%;
+    height: 1.5rem;
+    font-size: 1rem;
+    color: $halfBlack;
+    width: 100%;
+    border: 1px solid $lightGray;
+    box-sizing: border-box;
+    padding: 0 .5rem;
+  }
+
+  &__submit {
+    height: 1.5rem;
+    font-size: .8rem;
+    padding: 0 .5rem;
+    background-color: $gray;
+    color: $halfWhiteDown;
+    border: 1px solid $lightGray;
+    border-left: none;
+    outline: none;
+    cursor: pointer;
+  }
+
+  &__submit:hover {
+    background-color: $grayUp;
+    color: $white;
+  }
+
+
+  &__dropdown {
+    position: absolute;
+    width: 100%;
+    box-shadow: 2px 2px 5px 0px $lightGray;
+  }
 }

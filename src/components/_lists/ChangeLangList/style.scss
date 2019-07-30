@@ -1,0 +1,15 @@
+@import 'components/__shared/css/variables.scss';
+
+.change-lang-list {
+  background-color: rgba(0, 0, 0, 0);
+  font-size: 1.4rem;
+
+  &__text {
+    color: $lightGray;
+    text-decoration: none;
+  }
+
+  &__text:hover {
+    color: $gray;
+  }
+}
