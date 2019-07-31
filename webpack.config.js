@@ -9,7 +9,7 @@ const config = {
   filename: 'js/index.js',
   publicPath: (NODE_ENV === 'dev')
     ? 'http://localhost:3000/'
-    : 'https://search-video-app.herokuapp.com/',
+    : 'https://video-search-application.herokuapp.com/',
   outputPath: path.join(__dirname, '/public'),
   devServerPort: 3000,
   resolvePath: ['src', 'config'],
