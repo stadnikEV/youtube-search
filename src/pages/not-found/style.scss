@@ -1,0 +1,13 @@
+@import 'components/__shared/css/variables.scss';
+
+.not-found {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__text {
+    color: $halfWhite;
+    font-size: 10rem;
+  }
+}
